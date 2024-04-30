@@ -101,7 +101,8 @@ private:
         // Compute the host id
         fastdds::rtps::LocatorList loc;
         fastrtps::rtps::IPFinder::getIP4Address(&loc);
-        id_ = compute_id(loc);
+        // This is a hack to enable shared memory
+        id_ = 0xeeee;//compute_id(loc);
 
         // Compute the MAC id
         std::vector<fastrtps::rtps::IPFinder::info_MAC> macs;
